@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table</title>
+    <style>
+       .main{
+         margin: 0%;
+         padding: 0%;
+
+       }
+        .tab1{
+          margin: 1%;
+          text-align: center;
+          background-color: white;
+          width: 50%;
+          justify-content: space-between;
+           padding: 1%;
+           border: 1px solid green;
+        }
+    
+        #Button {
+          margin: 5%;
+          border:2px solid black;
+          padding:4% 8% 2% 4%;
+          height:4.4%;
+
+        }
+        #Display{
+            margin: 0%;
+            height: 2%;
+            width: 60%;
+            border: 1px solid white;
+            padding: 1% 1% 1% 1%;
+            text-align: center;
+            
+            
+        }
+        table,th,td {
+  
+  border-collapse: separate;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+      </style>
+</head>
+<body>
+  <div class="main">
+    <div class="tab1">
+      <span> Product Id   <input type="text" id="pID" /></span><br>
+      <span> Product Name <input type="text" id="pName" /></span><br>
+      <span> Product Price <input type="text" id="pPrice" /></span><br>
+    
+            <button onclick="addInfo()" id="Button">ADD PRODUCT</button>
+            
+    </div>
+          <div id="Display">
+            <table>
+                <tr>
+                  <th>Product Id</th>
+                  <th>Product Name</th>
+                  <th>Product Price</th>
+                </tr>
+                <td></td>
+            </table>
+          </div>
+
+          <div id ="demo"></div>
+     
+
+      <script>
+        var productarray=[];
+        function addInfo(){
+          var Id = document.getElementById('pID').value;
+          var Name = document.getElementById('pName').value;
+          var Price = document.getElementById('pPrice').value;
+
+          var product= {
+            ProductId: Id,
+            ProductName: Name,
+            ProductPrice: Price,
+          };
+           productarray.push(product);
+           html = 
+           "<table><tr><th>Product Id</th><th>Product Name</th><th>Product Price</th></tr>";
+            productarray.forEach((element) => {
+              html +=
+              "<tr><td>" +
+                element.ProductId +
+                "</td><td>" +
+                element.ProductName +
+                "</td><td>" +
+                  element.ProductPrice +
+                  "</td></tr>";
+            });
+             html += "</table>";
+             document.getElementById("Display").innerHTML = html;
+        }
+          
+      </script>
+    
+</body>
+</html>
